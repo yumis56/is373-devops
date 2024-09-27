@@ -1,3 +1,11 @@
+*.tmp
+*.swp
+*.swo
+*.idea
+vendor/
+*.env
+.vscode/
+.dockerignore
 node_modules/
 /test-results/
 /playwright-report/
