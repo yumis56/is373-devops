@@ -1,0 +1,8 @@
+*.tmp
+*.swp
+*.swo
+*.idea
+vendor/
+*.env
+.vscode/
+.dockerignore
