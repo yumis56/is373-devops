@@ -1,0 +1,22 @@
+{
+  "name": "is373-devops",
+  "version": "1.0.0",
+  "description": "This is for playwright testing",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumis56/is373-devops.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yumis56/is373-devops/issues"
+  },
+  "homepage": "https://github.com/yumis56/is373-devops#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^22.7.4"
+  }
+}
