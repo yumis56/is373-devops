@@ -1,0 +1,32 @@
+name: Run Tests
+
+on:
+  repository_dispatch:
+    types: [run-tests]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Download artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        workflow: build-and-test.yml
+        name: hexo-site
+        path: public
+        repo: yumis56/is373-project
+        
+    - name: Run Playwright tests
+      run: |
+        docker build -t playwright-tests .
+        docker run --network host -v $PWD/public:/app/public playwright-tests
+        
+    - name: Handle test results
+      run: |
+        # Add logic here to handle test results
+        
+        # fail the workflow if tests fail:
+        if [ $? -ne 0 ]; then exit 1; fi
