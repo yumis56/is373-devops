@@ -4,8 +4,7 @@ on:
     types: [hexo-site-updated]
   workflow_run:
     workflows: ["Deploy Test Hexo"]
-    types:
-      - completed
+    types: [completed]
 jobs:
   playwright:
     name: 'Playwright Tests'
