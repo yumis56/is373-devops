@@ -23,6 +23,29 @@ jobs:
         run: npx playwright test
         env:
           HOME: /root
+  
 
-      - name: Publish Test Summary Results
-        run: npx github-actions-ctrf ctrf/ctrf-report.json
+      - name: Upload Playwright Test Results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: |
+            results
+            playwright-report
+            test-results.json
+          retention-days: 7
+
+      - name: Upload Playwright Screenshots and Videos
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            screenshots
+            videos
+            traces
+          retention-days: 7
+
+      #- name: Publish Test Summary Results
+      #  run: npx github-actions-ctrf ctrf/ctrf-report.json
