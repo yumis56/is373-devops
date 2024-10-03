@@ -2,6 +2,10 @@ name: Playwright Tests
 on:
   repository_dispatch:
     types: [hexo-site-updated]
+  workflow_run:
+    workflows: ["Deploy Test Hexo"]
+    types:
+      - completed
 jobs:
   playwright:
     name: 'Playwright Tests'
