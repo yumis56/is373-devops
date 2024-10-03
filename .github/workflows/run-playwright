@@ -2,7 +2,7 @@ name: Run Playwright Tests
 
 on:
   workflow_run:
-    workflows: ["Build Deploy Hexo"]
+    workflows: ["Build and Deploy Hexo Blog"]
     types:
       - completed
 
