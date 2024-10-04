@@ -1,0 +1,15 @@
+name: Run Tests
+
+on:
+  workflow_run:
+    workflows: ["Test Workflow Trigger"]
+    types:
+      - completed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo test message
+        run: echo "Testing triggered!"
