@@ -1,4 +1,5 @@
-import { defineConfig, devices } from '@playwright/test';
+#import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -41,12 +42,18 @@ export default defineConfig({
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      #use: { ...devices['Desktop Firefox'] },
+      use: {
+        firefox: 'Desktop Firefox',
+      },
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      #use: { ...devices['Desktop Safari'] },
+      use: {
+        webkit: 'Desktop Safari',
+      },
     },
 
     /* Test against mobile viewports. */
