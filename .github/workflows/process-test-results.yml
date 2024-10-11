@@ -1,0 +1,29 @@
+name: Process Test Results
+
+on:
+  workflow_run:
+    workflows: build-and-run
+    types:
+      - completed
+
+jobs:
+  download-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+
+      - name: Checkout is373-project repository
+        uses: actions/checkout@v4
+        with:
+          repository: yumis56/is373-project
+          path: is373-project
+      
+      - name: Download artifact from is373-project
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-results
+    
+      - name: Process the Playwright results
+        run: |
+          cat ./test-results/playwright-results.txt
