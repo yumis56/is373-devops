@@ -14,7 +14,8 @@ RUN npm install
 COPY . .
 
 # Install Playwright browsers
-RUN npm ci | npx playwright install
+RUN npm ci
+RUN npx playwright install
 
 
 # Command to run your Playwright tests
