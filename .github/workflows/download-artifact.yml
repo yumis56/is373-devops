@@ -1,0 +1,34 @@
+name: Download Artifact
+
+on:
+  repository_dispatch:
+    types: [download_artifact]
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-results
+
+      - name: Move results to directory
+        run: |
+          #mkdir -p test-results
+          mv playwright-results.txt test-results/
+
+      - name: Commit and push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          git checkout results
+          git pull origin results
+          
+          git add test-results/playwright-results.txt
+          git commit -m "Add Playwright test results"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/yumis56/is373-devops.git results
