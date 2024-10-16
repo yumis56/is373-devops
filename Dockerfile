@@ -7,15 +7,18 @@ WORKDIR /app
 # Copy package.json and package-lock.json files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
-
 # Copy the rest of your application code
 COPY . .
 
-# Install Playwright browsers
+# Install dependencies
+RUN npm install
 RUN npm ci
+
+# Install Playwright browsers
+
 RUN npx playwright install
+#RUN npx playwright install msedge
+#RUN npx playwright install chrome
 
 
 # Command to run your Playwright tests
