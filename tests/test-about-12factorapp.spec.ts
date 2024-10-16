@@ -18,7 +18,7 @@ test.describe('About the Twelve Factor App Post', () => {
     await expect(page).toHaveURL(/.*about-12factorapp/);
 
     const title = await page.title(); // get page title
-    await expect(title).toContain('About the Twelve Factor App'); // Full title is "About Docker | Hexo", just make sure post title is contained properly
+    await expect(title).toContain('About the Twelve Factor App'); // just make sure post title is contained properly
 
   });
   
