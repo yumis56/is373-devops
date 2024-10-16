@@ -1,4 +1,4 @@
-import { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 const baseUrl = 'https://yumis56.github.io/is373-project';
 const thisPostUrl = new RegExp(`${baseUrl}/\\d{4}/\\d{2}/\\d{2}/about-12factorapp/`); // Since date changes based on re-deployment, make it a pattern. TODO change if static date is set.
