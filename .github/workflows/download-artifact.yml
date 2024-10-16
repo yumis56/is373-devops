@@ -15,6 +15,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: playwright-results
+          path: test-results/playwright-results.txt
 
       - name: Move results to directory
         run: |
