@@ -8,7 +8,6 @@ test.describe('About Docker Post', () => {
   test('Verify correct link and post text', async ({ page }) => {
     await page.goto(baseUrl); // Go to main web page
 
-
     await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-docker/"]')).toBeVisible();
     await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-docker/"]')).toHaveText('About Docker');
 
