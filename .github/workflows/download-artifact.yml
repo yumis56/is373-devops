@@ -14,18 +14,17 @@ jobs:
       - name: Debug before download
         run: |
           echo "Attempting to download artifact 'playwright-results'"
-          echo "Current directory contents:"
-          ls -la
+          ls -la test-results || echo "test-results directory not found"
 
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: playwright-results
-          path: test-results/playwright-results.txt
+          path: playwright-results.txt
 
       - name: Move results to directory
         run: |
-          #mkdir -p test-results
+          mkdir -p test-results
           mv playwright-results.txt test-results/
 
       - name: Commit and push results
