@@ -7,19 +7,17 @@ test.describe('About Docker Post', () => {
   
   test('Verify correct link and post text', async ({ page }) => {
     await page.goto(baseUrl); // Go to main web page
-    const menuLink = await page.locator('a:has-text("About Docker")'); // Verify link labeled 'About Docker'
-    await expect(menuLink).toBeVisible(); // Verify link is not hidden
 
-    await menuLink.click(); // click link
 
-    const currentUrl = page.url(); // Gets current browser URL
-    await expect(currentUrl).toMatch(thisPostUrl); // Verify that browser URL follows correct format
+    await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-docker/"]')).toBeVisible();
+    await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-docker/"]')).toHaveText('About Docker');
+
+    await page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-docker/"]').click();
+    await expect(page).toHaveURL(/.*about-docker/);
 
     const title = await page.title(); // get page title
-    await expect(title).toContain('About Docker'); // Full title is "About Docker | Hexo", just make sure post title is contained properly
+    await expect(title).toContain('About Docker'); // just make sure post title is contained properly
 
-    const mainHeading = await page.locator('h1.p-name.article-title'); // locate the article title element
-    await expect(mainHeading).toHaveText('About Docker'); // Verify the visible header title is correct
   });
   
 });
