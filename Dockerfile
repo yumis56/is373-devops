@@ -17,8 +17,8 @@ RUN npm ci
 # Install Playwright browsers
 
 RUN npx playwright install
-#RUN npx playwright install msedge
-#RUN npx playwright install chrome
+RUN npx playwright install msedge
+RUN npx playwright install chrome
 
 
 # Command to run your Playwright tests
