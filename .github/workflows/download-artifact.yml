@@ -20,7 +20,7 @@ jobs:
       - name: Debug before download
         run: |
           echo "Attempting to download artifact 'playwright-results'"
-          ls -la is373-project/test-results/ || echo "test-results directory not found"
+          is373-devops artifacts list
 
       - name: Download artifact
         uses: actions/download-artifact@v4
