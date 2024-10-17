@@ -15,10 +15,10 @@ test.describe('About the Twelve Factor App Post', () => {
 
     const postLink = page.locator('a[href*="about-12factorapp/"]');
     
-    await expect(aboutLink).toBeVisible();
-    await expect(aboutLink).toHaveText('About the Twelve Factor App');
+    await expect(postLink).toBeVisible();
+    await expect(postLink).toHaveText('About the Twelve Factor App');
 
-    await aboutLink.click();
+    await postLink.click();
     await expect(page).toHaveURL(/.*about-12factorapp/);
     
     //await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-12factorapp/"]')).toBeVisible();
