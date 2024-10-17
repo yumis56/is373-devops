@@ -27,12 +27,12 @@ jobs:
         with:
           name: playwright-results
           #path: test-results/playwright-results.txt
-          path: is373-project/test-results/
+          path: test-results/
 
-      - name: Move results to directory
-        run: |
-          mkdir -p test-results
-          mv is373-project/test-results/playwright-results.txt test-results/
+      #- name: Move results to directory
+      #  run: |
+      #    mkdir -p test-results
+      #    mv is373-project/test-results/playwright-results.txt test-results/
 
       - name: Commit and push results
         run: |
