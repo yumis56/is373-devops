@@ -11,22 +11,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Checkout is373-project
+        uses: actions/checkout@v4
+        with:
+          repository: yumis56/is373-project
+          path: is373-project
+
       - name: Debug before download
         run: |
           echo "Attempting to download artifact 'playwright-results'"
-          ls -la test-results || echo "test-results directory not found"
+          ls -la is373-project/test-results/ || echo "test-results directory not found"
 
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: playwright-results
           #path: test-results/playwright-results.txt
-          path: test-results/
+          path: is373-project/test-results/
 
       - name: Move results to directory
         run: |
           mkdir -p test-results
-          mv playwright-results.txt test-results/
+          mv is373-project/test-results/playwright-results.txt test-results/
 
       - name: Commit and push results
         run: |
