@@ -12,7 +12,8 @@ test.describe('About the Twelve Factor App Post', () => {
     // these might be better for the general website test
     /*await expect(page.locator('.widget-wrap').nth(0)).toBeVisible();*/
     /*await expect(page.locator('.widget-title')).nth(0)).toHaveText('Recent Posts');*/
-  
+
+    
     await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-12factorapp/"]')).toBeVisible();
     await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-12factorapp/"]')).toHaveText('About the Twelve Factor App');
     
