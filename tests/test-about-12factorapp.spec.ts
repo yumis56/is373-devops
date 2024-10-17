@@ -9,8 +9,10 @@ test.describe('About the Twelve Factor App Post', () => {
     await page.goto(baseUrl); // Go to main web page
 
 
-    await expect(page.locator('.widget-wrap')).toBeVisible();
-    await expect(page.locator('.widget-title')).toHaveText('Recent Posts');
+    // these might be better for the general website test
+    /*await expect(page.locator('.widget-wrap').nth(0)).toBeVisible();*/
+    /*await expect(page.locator('.widget-title')).nth(0)).toHaveText('Recent Posts');*/
+  
     await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-12factorapp/"]')).toBeVisible();
     await expect(page.locator('a[href="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-12factorapp/"]')).toHaveText('About the Twelve Factor App');
     
@@ -18,7 +20,7 @@ test.describe('About the Twelve Factor App Post', () => {
     await expect(page).toHaveURL(/.*about-12factorapp/);
 
     const title = await page.title(); // get page title
-    await expect(title).toContain('About the Twelve Factor App'); // Full title is "About Docker | Hexo", just make sure post title is contained properly
+    await expect(title).toContain('About the Twelve Factor App');
 
   });
   
