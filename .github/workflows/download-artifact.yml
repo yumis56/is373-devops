@@ -17,11 +17,6 @@ jobs:
           repository: yumis56/is373-project
           path: is373-project
 
-      - name: Debug before download
-        run: |
-          echo "Attempting to download artifact 'playwright-results'"
-          is373-devops artifacts list
-
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
