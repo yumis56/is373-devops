@@ -11,11 +11,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Debug before download
+        run: |
+          echo "Attempting to download artifact 'playwright-results'"
+          echo "Current directory contents:"
+          ls -la
+
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: playwright-results
-          path: test-results/
+          path: test-results/playwright-results.txt
 
       - name: Move results to directory
         run: |
