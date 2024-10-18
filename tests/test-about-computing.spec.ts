@@ -17,7 +17,11 @@ test.describe('About Computing Parts and Concepts', () => {
       
       await postLink.click();
       
+<<<<<<< HEAD
       await expect(page).toHaveURL(/.*about-computers-etc/);
+=======
+      await expect(page).toHaveURL(/.*about-computersetc/);
+>>>>>>> 62e43d4af8115cd22cb02bd431922e98cb575483
       const title = await page.title(); // get page title
       await expect(title).toContain('About Computing Parts and Concepts'); // just make sure post title is contained properly
   
