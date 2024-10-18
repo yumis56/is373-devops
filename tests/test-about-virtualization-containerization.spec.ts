@@ -11,7 +11,7 @@ test.describe('Check page title, menu link, and article heading', () => {
         console.log(await postLink.count()); //debug
       
         await expect(postLink).toBeVisible();
-        await expect(postLink).toHaveText('About Virutalization and Containerization');
+        await expect(postLink).toHaveText('About Virtualization and Containerization');
 
 
         await postLink.click();
