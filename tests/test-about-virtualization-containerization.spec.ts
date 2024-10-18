@@ -20,5 +20,8 @@ test.describe('Check page title, menu link, and article heading', () => {
         const title = await page.title(); // get page title
         await expect(title).toContain('About Virtualization and Containerization');
 
+        const VSLogo = page.locator('img[src="https://yumis56.github.io/is373-project/images/containerization-vs.-virtualization-768x420.png"]');
+        await expect(VSLogo).toBeVisible();
+
     });
 });
