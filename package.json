@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/yumis56/is373-devops#readme",
   "devDependencies": {
-    "@playwright/test": "^1.47.2",
+    "@playwright/test": "^1.48.1",
     "@types/node": "^22.7.4"
   }
 }
