@@ -13,7 +13,8 @@ test.describe('About the Twelve Factor App Post', () => {
     /*await expect(page.locator('.widget-wrap').nth(0)).toBeVisible();*/
     /*await expect(page.locator('.widget-title')).nth(0)).toHaveText('Recent Posts');*/
 
-    const postLink = page.locator('a[href*="about-12factorapp/"]');
+    //const postLink = page.locator('a[href*="about-12factorapp/"]');
+    const postLink = page.locator('a[href*="/is373-project/\\d{4}/\\d{2}/\\d{2}/about-12factorapp/"]');
     
     await expect(postLink).toBeVisible();
     await expect(postLink).toHaveText('About the Twelve Factor App');
